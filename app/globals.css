@@ -1,0 +1,451 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --background: #05020d;
+  --foreground: #fff7df;
+  --ease-sacred: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  /* Solid fallback prevents white flash while background image loads */
+  background-color: #05020d;
+  background-image: url('/krishna-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--foreground);
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+a,
+input,
+textarea,
+select,
+label {
+  transition: border-color 0.24s var(--ease-sacred), background-color 0.24s var(--ease-sacred), color 0.24s var(--ease-sacred), box-shadow 0.24s var(--ease-sacred);
+  animation-timing-function: var(--ease-sacred);
+}
+
+button {
+  cursor: pointer;
+  transition: transform 0.2s var(--ease-sacred), border-color 0.24s var(--ease-sacred), background-color 0.24s var(--ease-sacred), color 0.24s var(--ease-sacred), box-shadow 0.24s var(--ease-sacred);
+  animation-timing-function: var(--ease-sacred);
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+button:active:not(:disabled) {
+  transform: translateY(1px);
+  transition-duration: 0.16s;
+}
+
+::selection {
+  background: rgba(246, 208, 122, 0.32);
+  color: #fff8e6;
+}
+
+.glass-card {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(145deg, rgba(20, 10, 36, 0.78), rgba(5, 2, 13, 0.62));
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(22px);
+  animation: card-soft-entry 0.8s var(--ease-sacred) both;
+  transition: all 0.6s ease-in-out;
+  will-change: transform, opacity;
+}
+
+.krishna-card:hover {
+  transform: translate3d(0, -2px, 0) scale(1.015);
+  border-color: rgba(246, 208, 122, 0.35);
+  box-shadow: 0 28px 90px rgba(246, 208, 122, 0.2), 0 18px 50px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(26px);
+}
+
+.gold-text {
+  background: linear-gradient(90deg, #fff4c7, #f6d07a 42%, #bdf7ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-arrival {
+  animation: hero-soft-entry 1.2s var(--ease-sacred) both;
+  text-shadow: 0 18px 42px rgba(0, 0, 0, 0.46);
+}
+
+.chakra-spin {
+  animation: chakra-spin 14s linear infinite;
+}
+
+.aura-pulse {
+  animation: aura-pulse 3.6s ease-in-out infinite;
+}
+
+.float-light {
+  animation: float-light 9s ease-in-out infinite;
+}
+
+.quote-track {
+  animation: quote-scroll 96s linear infinite;
+  will-change: transform;
+}
+
+.quote-track:hover {
+  animation-play-state: paused;
+}
+
+.mandala-ring {
+  animation: mandala-rotate 18s linear infinite;
+}
+
+.mandala-ring-reverse {
+  animation: mandala-rotate 26s linear infinite reverse;
+}
+
+.speaking-mouth {
+  animation: speak 0.32s ease-in-out infinite;
+}
+
+.breathing {
+  animation: breathing 5s ease-in-out infinite;
+}
+
+.sacred-particle-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+  opacity: 0.46;
+}
+
+.sacred-particle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(246, 208, 122, 0.7);
+  box-shadow: 0 0 18px rgba(246, 208, 122, 0.38);
+  animation: particle-float 18s var(--ease-sacred) infinite;
+  will-change: transform, opacity;
+}
+
+.sacred-particle:nth-child(2n) {
+  background: rgba(189, 247, 255, 0.5);
+  box-shadow: 0 0 20px rgba(0, 194, 184, 0.28);
+  animation-duration: 20s;
+}
+
+.sacred-particle:nth-child(3n) {
+  width: 3px;
+  height: 3px;
+  animation-duration: 16s;
+}
+
+[data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition: opacity 0.8s var(--ease-sacred), transform 0.8s var(--ease-sacred);
+  will-change: transform, opacity;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+@media (max-width: 520px) {
+  .mobile-nav-toggle {
+    right: auto;
+    left: min(calc(100vw - 4rem), 20.5rem);
+  }
+}
+
+.avatar-presence {
+  animation: avatar-breathe 7.5s var(--ease-sacred) infinite;
+}
+
+.avatar-video-shell {
+  animation: avatar-fade-zoom 10s var(--ease-sacred) both;
+}
+
+.avatar-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.45s var(--ease-sacred), transform 8s var(--ease-sacred);
+  will-change: transform, opacity;
+}
+
+.avatar-stage-media {
+  contain: layout paint;
+}
+
+.avatar-eye-reflection {
+  background: linear-gradient(108deg, transparent 18%, rgba(255, 248, 213, 0.18) 45%, transparent 62%);
+  mix-blend-mode: screen;
+  opacity: 0.44;
+  transform: translate3d(-42%, -28%, 0) rotate(10deg);
+  animation: eye-reflection-drift 9s var(--ease-sacred) infinite;
+}
+
+.shloka-speak-panel {
+  transition: all 0.6s ease-in-out;
+}
+
+.shloka-speak-panel.is-speaking {
+  box-shadow: 0 0 34px rgba(246, 208, 122, 0.22), inset 0 0 32px rgba(246, 208, 122, 0.08);
+  animation: shloka-soft-pulse 2.8s var(--ease-sacred) infinite;
+}
+
+.shloka-word {
+  display: inline-block;
+  margin-right: 0.34em;
+  border-radius: 8px;
+  padding: 0 0.04em;
+  transition: color 0.6s ease-in-out, text-shadow 0.6s ease-in-out, background-color 0.6s ease-in-out;
+}
+
+.shloka-word.is-reading {
+  animation: word-highlight 6s var(--ease-sacred) infinite;
+}
+
+.hide-scrollbar {
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes chakra-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes divine-gradient-shift {
+  0% {
+    background-position: 0% 30%, 100% 20%, 0% 50%;
+  }
+  50% {
+    background-position: 55% 46%, 38% 60%, 70% 50%;
+  }
+  100% {
+    background-position: 100% 72%, 0% 80%, 100% 50%;
+  }
+}
+
+@keyframes card-soft-entry {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes hero-soft-entry {
+  from {
+    transform: translate3d(0, 18px, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes aura-pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes float-light {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translate3d(18px, -22px, 0) scale(1.14);
+    opacity: 0.9;
+  }
+}
+
+@keyframes quote-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes mandala-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes speak {
+  0%,
+  100% {
+    height: 7px;
+    border-radius: 999px;
+  }
+  50% {
+    height: 18px;
+    border-radius: 40% 40% 48% 48%;
+  }
+}
+
+@keyframes breathing {
+  0%,
+  100% {
+    transform: scale(0.96);
+    opacity: 0.72;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 1;
+  }
+}
+
+@keyframes particle-float {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0) scale(0.7);
+  }
+  18% {
+    opacity: 0.42;
+  }
+  50% {
+    opacity: 0.72;
+    transform: translate3d(18px, -56px, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(-12px, -120px, 0) scale(0.76);
+  }
+}
+
+@keyframes avatar-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+@keyframes avatar-fade-zoom {
+  from {
+    opacity: 0;
+    transform: scale(1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.01);
+  }
+}
+
+@keyframes avatar-video-zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.03);
+  }
+}
+
+@keyframes eye-reflection-drift {
+  0%,
+  100% {
+    opacity: 0.18;
+    transform: translate3d(-44%, -24%, 0) rotate(10deg);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translate3d(40%, 22%, 0) rotate(10deg);
+  }
+}
+
+@keyframes shloka-soft-pulse {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -2px, 0);
+  }
+}
+
+@keyframes word-highlight {
+  0%,
+  70%,
+  100% {
+    background-color: transparent;
+    color: #f6d07a;
+    text-shadow: none;
+  }
+  18%,
+  36% {
+    background-color: rgba(246, 208, 122, 0.13);
+    color: #fff8dc;
+    text-shadow: 0 0 18px rgba(246, 208, 122, 0.55);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}
