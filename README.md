@@ -1,4 +1,4 @@
-# geetachatbot.tech
+# [Geetachatbot](https://geetachatbot.tech/)
 
 # 🕉️ Geeta AI — Divine Life Guidance System
 
