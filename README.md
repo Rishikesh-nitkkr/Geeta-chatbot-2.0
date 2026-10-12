@@ -1,3 +1,5 @@
+# geetachatbot.tech
+
 # 🕉️ Geeta AI — Divine Life Guidance System
 
 > A Next.js AI-powered platform that delivers Bhagavad Gita wisdom, verse-based guidance, meditation tools, a growth tracker, Gita quiz, and an admin dashboard — all wrapped in a stunning dark "Solo Leveling" aesthetic.
